@@ -1,4 +1,4 @@
-const {Builder, By, Browser} = require('selenium-webdriver');
+const { Builder, By, Browser } = require('selenium-webdriver');
 const chromedriver = require('chromedriver');
 const chrome = require('selenium-webdriver/chrome');
 
@@ -59,6 +59,15 @@ describe('Calculator', () => {
     await driver.findElement(By.id('nine')).click();
     await driver.findElement(By.xpath("//input[@value='=']")).click();
     expect(await driver.findElement(By.id('result')).getAttribute('value')).toBe('3.4827586206896552');
+  });
+
+  test('multiply', async () => {
+    await driver.findElement(By.id('one')).click();
+    await driver.findElement(By.id('two')).click();
+    await driver.findElement(By.xpath("//input[@value='x']")).click();
+    await driver.findElement(By.id('eight')).click();
+    await driver.findElement(By.xpath("//input[@value='=']")).click();
+    expect(await driver.findElement(By.id('result')).getAttribute('value')).toBe('96');
   });
 
 });
