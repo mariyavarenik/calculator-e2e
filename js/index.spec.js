@@ -69,5 +69,16 @@ describe('Calculator', () => {
     await driver.findElement(By.xpath("//input[@value='=']")).click();
     expect(await driver.findElement(By.id('result')).getAttribute('value')).toBe('96');
   });
-
+  test('sumdec', async () => {
+    await driver.findElement(By.id('one')).click();
+    await driver.findElement(By.id('two')).click();
+    await driver.findElement(By.xpath("//input[@class='dot']")).click();
+    await driver.findElement(By.id('eight')).click();
+    await driver.findElement(By.xpath("//input[@value='+']")).click();
+    await driver.findElement(By.id('three')).click();
+    await driver.findElement(By.xpath("//input[@class='dot']")).click();
+    await driver.findElement(By.id('seven')).click();
+    await driver.findElement(By.xpath("//input[@value='=']")).click();
+    expect(await driver.findElement(By.id('result')).getAttribute('value')).toBe('16.5');
+  });
 });
